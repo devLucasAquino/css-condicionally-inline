@@ -1,7 +1,6 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 
 import './index.css';
-
 
 const App = () => {
   
@@ -11,19 +10,18 @@ const App = () => {
     setButtonClick(buttonName);
   }
 
-  let isButtonYes = buttonClick === 'Yes';
-
   return (
     <div id="app">
       <h1 style={{
-        color: isButtonYes ? 'green' : 'red',
+        color: 
+        buttonClick === 'No' && 'red' || buttonClick === 'Yes' && 'green'
       }}>CSS is great!</h1>
       <menu>
         <li>
-          <button onClick={ () => handleButtonClick('Yes')}>Yes</button>
+          <button onClick={() => handleButtonClick('Yes')}>Yes</button>
         </li>
         <li>
-          <button onClick={ () => handleButtonClick('No')}>No</button>
+          <button onClick={() => handleButtonClick('No')}>No</button>
         </li>
       </menu>
     </div>
