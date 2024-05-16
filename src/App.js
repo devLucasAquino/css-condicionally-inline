@@ -1,15 +1,29 @@
+import React,{ useState } from 'react';
+
 import './index.css';
 
-function App() {
+
+const App = () => {
+  
+  const [buttonClick, setButtonClick] = useState('');
+  
+  function handleButtonClick(buttonName){
+    setButtonClick(buttonName);
+  }
+
+  let isButtonYes = buttonClick === 'Yes';
+
   return (
     <div id="app">
-      <h1>CSS is great!</h1>
+      <h1 style={{
+        color: isButtonYes ? 'green' : 'red',
+      }}>CSS is great!</h1>
       <menu>
         <li>
-          <button>Yes</button>
+          <button onClick={ () => handleButtonClick('Yes')}>Yes</button>
         </li>
         <li>
-          <button>No</button>
+          <button onClick={ () => handleButtonClick('No')}>No</button>
         </li>
       </menu>
     </div>
